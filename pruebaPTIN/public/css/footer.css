@@ -1,0 +1,52 @@
+
+div .Centrar_Footer{
+	   padding: 1rem 0 0 1rem;
+	   display: flex;				   
+	   justify-content: center;
+	   text-align: center;
+	   flex-direction: column;
+}
+div .Centrar_Footer a{
+	color: #FFFFFF;
+}
+
+
+/*Botón google play*/
+
+.btn-store {
+  color: #ffffff !important;
+  background-color: #2d2b2b;
+  border-color: #168eea !important;
+}
+
+.btn-store:focus, 
+.btn-store:hover {
+  color: #ffffff !important;
+  background-color: #014797;
+  border-color: #FFFFFF !important;
+}
+
+.btn-store .btn-label, 
+.btn-store .btn-caption {
+  display: block;
+  width:13rem;
+  text-align: left;
+  line-height: 1;
+}
+
+.btn-store .btn-caption {
+  font-size: 24px;
+}
+.boton{
+	padding: 1rem 0 0 0;
+	display: flex;
+	justify-content: center;
+	padding-bottom:3rem;
+}
+.titulo{
+	color:#FFFFFF;
+}
+
+.footer-j{
+	margin-top:100%;	
+}
