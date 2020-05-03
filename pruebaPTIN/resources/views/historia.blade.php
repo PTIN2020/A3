@@ -1,18 +1,26 @@
 @include('menu')
 
+	  <section class="section section-lg section-main-bunner section-main-bunner-filter text-center">
+        <div class="main-bunner-img" style="background-image: url(&quot;images/portada_historia.jpg&quot;); background-size: cover;"></div>
+        <div class="main-bunner-inner">
+          <div class="container">
+            <div class="box-default">
+              <br><h1 class="box-default-title"><p style="color:white;">HISTÒRIA DE V.I.A.</h1>
+              <br><div class="box-default-decor"></div>
+              <p class="big box-default-text">Potser et preguntes quins són els origens de Vilanova Intelligent Airport; com es va crear, quina ha estat la seva evolució durant els anys, i altres dades historiogràfiques. En aquest apartat, podràs llegir tota la nostra història, des dels inicis fins al present. </p>
+			  <div class="box-default-decor"></div>
+			</div>
+          </div>
+        </div>
+      </section>
+
     <style>
+	
 	  body{
 		
-		background: rgba(179,220,237,1);
-		background: -moz-radial-gradient(center, ellipse cover, rgba(179,220,237,1) 0%, rgba(41,184,229,1) 50%, rgba(0,69,154,1) 100%);
-		background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%, rgba(179,220,237,1)), color-stop(50%, rgba(41,184,229,1)), color-stop(100%, rgba(0,69,154,1)));
-		background: -webkit-radial-gradient(center, ellipse cover, rgba(179,220,237,1) 0%, rgba(41,184,229,1) 50%, rgba(0,69,154,1) 100%);
-		background: -o-radial-gradient(center, ellipse cover, rgba(179,220,237,1) 0%, rgba(41,184,229,1) 50%, rgba(0,69,154,1) 100%);
-		background: -ms-radial-gradient(center, ellipse cover, rgba(179,220,237,1) 0%, rgba(41,184,229,1) 50%, rgba(0,69,154,1) 100%);
-		background: radial-gradient(ellipse at center, rgba(179,220,237,1) 0%, rgba(41,184,229,1) 50%, rgba(0,69,154,1) 100%);
-		filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#b3dced', endColorstr='#00459a', GradientType=1 );
-  
+		background: rgba(165,227,243,0.8); <!--color de fondo nuevo-->
 	  }
+	  
 	</style>
 	<div class="ie-panel"><a href="http://windows.microsoft.com/en-US/internet-explorer/"><img src="images/ie8-panel/warning_bar_0000_us.jpg" height="42" width="820" alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today."></a></div>
     <div class="preloader">
@@ -26,7 +34,9 @@
     <div class="page">
       <section class="section section-lg">
           <div class="text-center pt-5">
+			<hr /> <hr />
 		    <h1 class="box-default-title">Història de l'aeroport</h1>
+			<hr /> <hr />
           </div>
           <div class="container py-4">
                   <div class="form-group py-5" style="text-align: justify; line-height: 2; text-justify: inter-word;">
@@ -39,8 +49,12 @@
                           <br><br>L'any 2044, l'èxit es tornava a repetir. El funcionament de l'aeroport havia estat tan perfecte que rebia el premi a Millor Aeroport d'Europa, repartit per l'AAE (Associació d'Aeroport d'Europa). L'empresa de PIA també es va globalitzar, expandint-se per països com França, Alemanya, Japó o la Índia. El Vilanova Intelligent Airport encara conserva el conjunt de crítiques positives per part de la gent en l'actualitat, i ho demostra amb els mil·lions de persones que l'utilitzen any rere any. </textbox>
                   </div>
           </div>
+									
+		  <div align="center"><a href=""><img src="{{ asset('images/avion_historia.png') }}" alt="" width="580" height="557"/></a>
+		  </div>
+		  
       </section>
-      <!-- Page Footer-->
+      <!-- Page Footer--> 
     </div>
 	
 @include('footer')

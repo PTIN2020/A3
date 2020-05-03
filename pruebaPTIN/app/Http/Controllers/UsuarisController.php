@@ -6,7 +6,10 @@ use Illuminate\Http\Request;
 use Illuminate\Database\Eloquent\Model;
 use Jenssegers\Mongodb\Eloquent\Model as Eloquent;
 use View;
+use DB;
 use Illuminate\Routing\Route;
+use Response;
+use App\Exceptions\Handler;
 class UsuarisController extends Eloquent
 
 {
@@ -19,31 +22,66 @@ class UsuarisController extends Eloquent
 		 return view('index');
     }
 	
+	public function comprovar(Request $request)
+    {
+        $FORMULARIO = json_decode(base64_decode($request->input("formulari_login")), true);
+		//dd($FORMULARIO);
+        $ARRAY_INSERT = array();
+        foreach ($FORMULARIO as $KEY => $VALUE) {
+            $ARRAY_INSERT[$VALUE["name"]] = $VALUE["value"];
+        }
+        $usuari = $ARRAY_INSERT["correu"];
+        $passwd = $ARRAY_INSERT["contrasenya"];
+        //$pasajero = DB::connection('mongodb')->table('Pasajeros')->find($usuari);
+		$pasajero = DB::connection('mongodb')->table('Pasajeros')->where('username', $usuari)->first();
+		//dd($pasajero);
+        if ( ! is_null($pasajero)){
+			if($usuari == $pasajero["username"] && $passwd==$pasajero["password"]){
+				//echo "Correcte";
+				echo json_encode(array("estado" => "ok"));
+			}elseif($usuari == $pasajero["username"]){
+				//echo "Contrasenya incorrecte";
+				echo json_encode(array("estado" => "casi"));
+			}
+		}else{
+		  echo json_encode(array("estado" => "ko"));
+		  //echo "El passatger amb correu: " . $usuari .  " no existeix";
+		}
+    }
+	
 	
 	public function create(Request $request)
 	{
+		$FORMULARIO = json_decode(base64_decode($request->input("formulario")), true);
+		//dd($FORMULARIO);
+		//echo $FORMULARIO[0]["value"];
+		$ARRAY_INSERT = array();
 		
-		/*$ARRAY_INSERT = array();
 		foreach ($FORMULARIO as $KEY => $VALUE) {
-			$ARRAY_INSERT[$VALUE["name"]] = $VALUE["value"];   
-		}*/
+			$ARRAY_INSERT[$VALUE["name"]] = $VALUE["value"];
+		}
 		
-		//$SQL = DB::table('Pasajeros')->insert($ARRAY_INSERT);
-		dd($request->all());
 		$Pasajero = new Pasajeros();
-		$Pasajero->id_user = $request->get('id_user');
-		$Pasajero->nombre = $request->get('nombre');
-		$Pasajero->apellidos = $request->get('apellidos');
-		$Pasajero->nacio = $request->get('nacio');
-		$Pasajero->genero = $request->get('genero');
-		$Pasajero->vip = $request->get('vip');
-		$Pasajero->disabled = $request->get('disabled');
-		$Pasajero->telefono = $request->get('telefono');
-		$Pasajero->perfil = $request->get('perfil');
-		$Pasajero->username = $request->get('username');
-		$Pasajero->password = $request->get('password');
+		$Pasajero->id_user = $ARRAY_INSERT["id_user"];
+		$Pasajero->nombre = $ARRAY_INSERT["nombre"];
+		$Pasajero->apellidos = $ARRAY_INSERT["apellidos"];
+		$Pasajero->nacio = NULL;
+		$Pasajero->genero = $ARRAY_INSERT["genere"];
+		$Pasajero->vip = NULL;
+		$Pasajero->disabled = NULL;
+		$Pasajero->telefono = $ARRAY_INSERT["telefono"];
+		$Pasajero->perfil = NULL;
+		$Pasajero->username = $ARRAY_INSERT["username"];
+		$Pasajero->password = $ARRAY_INSERT["password"];
 		$Pasajero->historico = NULL;
-		$Pasajero->save();
-		return view('/');
+		//$resultado = $Pasajero->save();
+		//echo $resultado;
+		$existeix = DB::connection('mongodb')->table('Pasajeros')->where('username', $Pasajero->username)->first();
+		if ($existeix == null) {
+			$Pasajero->save();
+			echo json_encode(array("estado" => "ok"));
+		}else{
+			echo json_encode(array("estado" => "ko"));
+		}	
 	}
 }

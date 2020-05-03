@@ -1,15 +1,20 @@
 @include('menu')
-      <section class="parallax-container overlay-1" data-parallax-img="images/contacte.jpg">
-        <div class="parallax-content breadcrumbs-custom context-dark"> 
+      
+	   <section class="section section-lg section-main-bunner section-main-bunner-filter text-center">
+        <div class="main-bunner-img" style="background-image: url(&quot;images/portada_contacto.jpg&quot;); background-size: cover;"></div>
+        <div class="main-bunner-inner">
           <div class="container">
-            <div class="row justify-content-center">
-              <div class="col-12 col-lg-9">
-                <br><h2 class="breadcrumbs-custom-title" style="color: black;" >Contacte</h2>
-              </div>
-            </div>
+            <div class="box-default">
+              <br><h1 class="box-default-title"><p style="color:white;">CONTACTE </h1>
+              <br><div class="box-default-decor"></div>
+              <p class="big box-default-text">Vols contactar amb l'Aeroport? En aquesta pàgina trobràs la informació de contacte de V.I.A: telèfon, email, adreça, mapa de localització de tot l'Aeroport, i un formulari per enviar-nos consultes, dubtes i altres comentaris. </p>
+			  <div class="box-default-decor"></div>
+			</div>
           </div>
         </div>
       </section>
+	  
+	  
       <section class="section section-lg text-center bg-default">
         <div class="container">
           <div class="row row-50">
@@ -18,7 +23,7 @@
                 <div class="box-icon-inner decorate-triangle"><span class="icon-xl linearicons-phone-incoming"></span></div>
                 <div class="box-icon-caption">
                   <h4><a href="tel:#">1-800-123-1234</a></h4>
-                  <p>Truca en qualsevol moment</p>
+                  <p>Truca en qualsevol moment i seràs atès. </p>
                 </div>
               </div>
             </div>
@@ -26,7 +31,7 @@
               <div class="box-icon-classic">
                 <div class="box-icon-inner decorate-circle"><span class="icon-xl linearicons-map2"></span></div>
                 <div class="box-icon-caption">
-                  <h4><a href="#">poligon VIA, Vilanova i la geltrú, 08800, Barcelona</a></h4>
+                  <h4><a href="#">Zona VIA, Vilanova i la Geltrú, 08800, Barcelona.</a></h4>
                 </div>
               </div>
             </div>
@@ -35,7 +40,7 @@
                 <div class="box-icon-inner decorate-rectangle"><span class="icon-xl linearicons-paper-plane"></span></div>
                 <div class="box-icon-caption">
                   <h4><a href="mailto:#">info@viairport.com</a></h4>
-                  <p>Deixa els teus dubtes</p>
+                  <p>Deixa els teus dubtes i/o comentaris. </p>
                 </div>
               </div>
             </div>
@@ -59,34 +64,112 @@
         <div class="container">
           <div class="row justify-content-md-center">
             <div class="col-md-9 col-lg-7">
-              <h3>Escriu el teu dubte</h3>
+              <h3>Escriu el teu dubte o comentari aquí:</h3>
               <!-- RD Mailform-->
-              <form class="rd-form rd-mailform" data-form-output="form-output-global" data-form-type="contact" method="post" action="bat/rd-mailform.php">
+			  {{csrf_field()}}
+              <form id="formulario" class="rd-form rd-mailform">
                 <div class="form-wrap">
-                  <input class="form-input" id="contact-name" type="text" name="name" data-constraints="@Required">
+                  <input class="form-input" id="contact-name" type="text" name="NOMBRE" data-constraints="@Required">
                   <label class="form-label" for="contact-name">Nom</label>
                 </div>
                 <div class="form-wrap">
-                  <input class="form-input" id="contact-email" type="email" name="email" data-constraints="@Email @Required">
+                  <input class="form-input" id="contact-email" type="email" name="EMAIL" data-constraints="@Email @Required">
                   <label class="form-label" for="contact-email">E-mail</label>
                 </div>
                 <div class="form-wrap">
-                  <input class="form-input" id="contact-phone" type="text" name="phone" data-constraints="@Numeric">
-                  <label class="form-label" for="contact-phone">Telèfon</label>
-                </div>
-                <div class="form-wrap">
                   <label class="form-label" for="contact-message"> Missatge</label>
-                  <textarea class="form-input" id="contact-message" name="message" data-constraints="@Required"></textarea>
+                  <textarea class="form-input" id="contact-message" name="MENSAJE" data-constraints="@Required"></textarea>
                 </div>
                 <div class="row justify-content-center">
                   <div class="col-12 col-sm-7 col-lg-5">
-                    <button class="button button-block button-lg button-primary" type="submit">Enviar</button>
+                    <button class="button button-block button-lg button-primary" type="submit">Enviar</button> <br><br><br><br>
                   </div>
                 </div>
               </form>
             </div>
           </div>
-        </div>
+        </div>									
+		<div align="center"><a href=""><img src="{{ asset('images/foto_contacto.jpg') }}" alt="" width="620" height="557"/></a>
+		</div>
+		
       </section>
 	  <!-- Page Footer-->
 @include('footer')
+@include('sweet::alert')
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.1/jquery.validate.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.1/jquery.validate.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.1/additional-methods.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.1/additional-methods.min.js"></script>
+
+<script>
+    $(document).ready(function(){
+        $('#formulario').validate({ // initialize the plugin
+            rules: {
+                NOMBRE: {
+                    required: true,
+                    minlength: 1
+                },
+                EMAIL: {
+                    required: true,
+                    minlength: 1,
+                    email: true
+                },
+                MENSAJE: {
+                    required: true,
+                    minlength: 1,
+                }
+            },
+            messages: {
+                NOMBRE: {
+                    required: "Tienes que ingresar el nombre",
+                    minlength: "Como mínimo tiene que haber dos letras"
+                },
+                EMAIL: {
+                    required: "Tienes que ingresar el email",
+                    minlength: "Como mínimo tiene que haber una letra",
+                    email: "El Email indicado no es válido"
+                },
+                MENSAJE: {
+                    required: "Tienes que ingresar la consulta",
+                    minlength: "Como mínimo tiene que haber 1 letras"
+                }
+            },
+            submitHandler: function (form) {
+                if(!$("#formulario").hasClass("bloqueado")){
+                    $("#formulario").addClass("bloqueado");
+                    var formulario = btoa(JSON.stringify($("#formulario").serializeArray()));
+
+                    $.ajaxSetup({
+                        headers: {
+                            'X-CSRF-TOKEN': $("input[name^='_token']").val()
+                        }
+                    });
+
+                    $.ajax({
+                        type: "POST",
+                        url: "formulario", 
+                        data: {
+                            "formulario" : formulario
+                        },
+                        dataType: "json",   
+                        success: function(data){
+                            RESPUESTA = data["estado"];
+                            switch (RESPUESTA) {
+                                case "ok":
+                                    swal({
+                                        text: "",
+                                        title: "MENSAJE ENVIADO",
+                                        timer: 6000,
+                                        icon: "success",
+                                        buttons: "CERRAR",
+                                    });
+                                    break;
+                            }
+                            $("#formulario").removeClass("bloqueado");
+                        }
+                    });
+                }
+            }
+        });
+    });   
+</script>

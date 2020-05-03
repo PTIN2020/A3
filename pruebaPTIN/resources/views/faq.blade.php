@@ -1,22 +1,32 @@
 @include('menu')
 
+	  <section class="section section-lg section-main-bunner section-main-bunner-filter text-center">
+        <div class="main-bunner-img" style="background-image: url(&quot;images/portada_faq.jpg&quot;); background-size: cover;"></div>
+        <div class="main-bunner-inner">
+          <div class="container">
+            <div class="box-default">
+              <br><h1 class="box-default-title"><p style="color:white;">PREGUNTES FREQÜENTS </h1>
+              <br><div class="box-default-decor"></div>
+              <p class="big box-default-text">Tens dubtes sobre aspectes relacionats amb l'Aeroport? En aquest apartat trobaràs un seguit de Preguntes Freqüents sobre diferents temes, i les seves corresponents respostes en format desplegable. <br>Podràs resoldre tots els teus dubtes i gaudiràs d'un bon viatge. </p>
+			  <div class="box-default-decor"></div>
+			</div>
+          </div>
+        </div>
+      </section>
+
 	  <style>
+	  
 	  body{
 		
-		background: rgba(179,220,237,1);
-		background: -moz-radial-gradient(center, ellipse cover, rgba(179,220,237,1) 0%, rgba(41,184,229,1) 50%, rgba(0,69,154,1) 100%);
-		background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%, rgba(179,220,237,1)), color-stop(50%, rgba(41,184,229,1)), color-stop(100%, rgba(0,69,154,1)));
-		background: -webkit-radial-gradient(center, ellipse cover, rgba(179,220,237,1) 0%, rgba(41,184,229,1) 50%, rgba(0,69,154,1) 100%);
-		background: -o-radial-gradient(center, ellipse cover, rgba(179,220,237,1) 0%, rgba(41,184,229,1) 50%, rgba(0,69,154,1) 100%);
-		background: -ms-radial-gradient(center, ellipse cover, rgba(179,220,237,1) 0%, rgba(41,184,229,1) 50%, rgba(0,69,154,1) 100%);
-		background: radial-gradient(ellipse at center, rgba(179,220,237,1) 0%, rgba(41,184,229,1) 50%, rgba(0,69,154,1) 100%);
-		filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#b3dced', endColorstr='#00459a', GradientType=1 );
-  
+		background: rgba(165,227,243,0.6); <!--color de fondo nuevo-->
 	  }
+	  
 	  </style>
 	  <section class="section section-lg">
       <div class="container text-center pt-5">
+		<hr /> <hr />
 		<h1 class="box-default-title">Com podem ajudar-te?</h1>
+		<hr /> <hr />
       </div>
 	  </section>
       <div class="container py-4">
@@ -34,7 +44,7 @@
                       </div>
                       <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#faqExample">
                           <div class="card-body text-justify">
-                              <b>Resposta: </b>Sí, tenim la APP OFICIAL VIA. Descarrega-la des de Google Play Store, o en la part superior de la web, on trobaràs una icona que diu “Descarrega la teva app”.
+                              <b>Resposta: </b>Sí, tenim la APP Oficial VIA. Descarrega-la des de Google Play Store, o en la part superior de la web, on trobaràs una icona que diu “Descarrega la teva app”.
                           </div>
                       </div>
                   </div>
@@ -43,7 +53,7 @@
                         <a class="collapsed" data-toggle="collapse" data-parent="#accordionTwo" href="#collapseTwo"
                           aria-expanded="false" aria-controls="collapseTwo">
                           <h5 class="mb-0">
-                            Vull donar-me d’alta en <b>VIA CLUB CLIENT</b>, quins son els requisits? <i class="fas fa-angle-down rotate-icon"></i>
+                            Vull donar-me d’alta en <b>VIA Club CLIENT</b>, quins son els requisits? <i class="fas fa-angle-down rotate-icon"></i>
                           </h5>
                         </a>
                       </div>
@@ -61,7 +71,7 @@
                         <a class="collapsed" data-toggle="collapse" data-parent="#accordionThree" href="#collapseThree"
                           aria-expanded="false" aria-controls="collapseThree">
                           <h5 class="mb-0">
-                            Ser membre de <b>VIA CLUB Client</b> té algun cost associat? <i class="fas fa-angle-down rotate-icon"></i>
+                            Ser membre de <b>VIA Club Client</b> té algun cost associat? <i class="fas fa-angle-down rotate-icon"></i>
                           </h5>
                         </a>
                       </div>
@@ -208,7 +218,7 @@
                       </div>
                       <div id="collapseTwelve" class="collapse" aria-labelledby="headingTwelve" data-parent="#faqExample">
                           <div class="card-body text-justify">
-                              <b>Resposta: </b>Lamentem aquesta situació. Pots reali8tzar reclamacions a la nostra pàgina web, a l’apartat de contacte. També pots fer reclamació de forma
+                              <b>Resposta: </b>Lamentem aquesta situació. Pots realitzar reclamacions a la nostra pàgina web, a l’apartat de contacte. També pots fer reclamació de forma
                               presencial a l’aeroport; el nostre personal t’ajudarà.
                           </div>
                       </div>
@@ -288,7 +298,8 @@
                       </div>
                       <div id="collapseSeventeen" class="collapse" aria-labelledby="headingSeventeen" data-parent="#faqExample">
                           <div class="card-body text-justify">
-                              <b>Resposta: </b>Si compro perfums o cremes un cop passats els controls de seguretat, puc utilitzar-los abans d’arribar al meu destí?
+                              <b>Resposta: </b>Lamentablement no. El perfum o la crema que compris en les nostre botigues de l’aeroport serà entregat en una bossa precintada, i no podrà ser oberta ni utilitzat el seu contingut fins arribar al destí final del teu vol; per raons de polítiques de seguretat.
+
                           </div>
                       </div>
                   </div>
@@ -297,7 +308,7 @@
           </div>
       </div>
       <div class="container py-4">
-          <p class="lead text-justify py-4">Encara no has resolt el teu dubte? <a href="#" style="color:#014797;text-decoration:underline;">Contacta amb nosaltres!</a></p>
+          <p class="lead text-justify py-4"><b>Encara no has resolt el teu dubte?</b> <a href="#" style="color:#014797;text-decoration:underline;">Contacta amb nosaltres!</a></p>
       </div>
   </div>
 
